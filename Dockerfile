@@ -15,7 +15,7 @@ RUN mkdir /app
 WORKDIR /app
 
 # Puppeteer v0.11.0 works with Chromium 63.
-RUN npm i -g --no-cache codeceptjs@^1.7.0 puppeteer@^1.2.0
+RUN npm i -g --no-cache codeceptjs puppeteer@^1.2.0
 
 # Add user so we don't need --no-sandbox.
 RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
