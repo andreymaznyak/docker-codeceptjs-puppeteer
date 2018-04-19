@@ -11,8 +11,8 @@ RUN apk update && apk upgrade && \
 # Tell Puppeteer to skip installing Chrome. We'll be using the installed package.
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN mkdir /app
-WORKDIR /app
+RUN mkdir /builds
+WORKDIR /builds
 
 # Puppeteer v0.11.0 works with Chromium 63.
 RUN npm i -g --no-cache codeceptjs puppeteer@^1.2.0
@@ -21,4 +21,4 @@ RUN npm i -g --no-cache codeceptjs puppeteer@^1.2.0
 RUN addgroup -S pptruser && adduser -S -g pptruser pptruser \
     && mkdir -p /home/pptruser/Downloads \
     && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /app
+    && chown -R pptruser:pptruser /builds
